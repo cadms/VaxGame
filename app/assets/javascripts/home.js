@@ -223,7 +223,28 @@ d3.select(".homeSVG").append("text")
     })
 
 d3.select(".homeSVG").append("text")
+    .attr("class", "homeHI")
+    .attr("x", 802)
+    .attr("y", 622)
+    .attr("fill", "#707070")
+    .attr("font-size", "23px")
+    .style("font-family", "Nunito")
+    .style("cursor", "pointer")
+    .text("FAQ >")
+    .on("mouseover", function(d) {
+
+        d3.select(this).style("fill", "#2692F2")
+
+    })
+    .on("mouseout", function(d) {
+        d3.select(this).style("fill", "#707070")
+    })
+    .on("click", function() {
+        window.location.href = '/faq'
+    })
+
+d3.select(".homeSVG").append("text")
     .attr("x", 718)
-    .attr("y", 612)
+    .attr("y", 654)
     .attr("fill", "#707070")
     .text("Salathé Group | 2014")

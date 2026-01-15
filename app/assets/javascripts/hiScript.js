@@ -27,7 +27,7 @@ function hiAdvance() {
         d3.select("#hiGuideText")
             .html("What is herd immunity?")
 
-        d3.select("#headerHI").transition().duration(2000).attr("opacity", 0)
+        // d3.select("#headerHI").transition().duration(2000).attr("opacity", 0)
     }
 
     if (hiGuide == 2) {

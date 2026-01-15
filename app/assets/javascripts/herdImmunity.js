@@ -64,7 +64,7 @@ function init_hiSpace() {
         .style("font-family", "Nunito")
         .style("font-weight", 300)
         .style("fill", "#707070")
-        .attr("x", -20)
+        .attr("x", 10)
         .attr("y", 80)
         .text("Herd Immunity")
         .attr("opacity", 1)

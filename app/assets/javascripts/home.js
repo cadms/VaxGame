@@ -225,17 +225,5 @@ d3.select(".homeSVG").append("text")
 d3.select(".homeSVG").append("text")
     .attr("x", 718)
     .attr("y", 612)
-    .style("cursor", "pointer")
     .attr("fill", "#707070")
-    .on("mouseover", function(d) {
-
-        d3.select(this).style("fill", "#2692F2")
-
-    })
-    .on("mouseout", function(d) {
-        d3.select(this).style("fill", "#707070")
-    })
-    .on("click", function() {
-        window.location.href = "http://salathegroup.com";
-    })
     .text("Salathé Group | 2014")

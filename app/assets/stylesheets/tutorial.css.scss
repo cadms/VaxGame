@@ -3,7 +3,7 @@
   font-family: "Nunito";
   font-size: 10px;
   font-weight: 300;
-  color: "white";
+  color: white;
   top: -32px;
   right: -20px;
 }
@@ -81,7 +81,7 @@
   font-family: "Nunito";
   font-size: 10px;
   font-weight: 300;
-  color: "white";
+  color: white;
   top: -32px;
   right: -15px;
 }
@@ -169,7 +169,7 @@
   position:relative;
   background: #85bc99;
   float:right;
-  color: "white";
+  color: white;
   width:500px;
   height: 45px;
   top: -75px;
@@ -197,7 +197,7 @@
   position:relative;
   background: #85bc99;
   float:right;
-  color: "white";
+  color: white;
   width:550px;
   height: 45px;
   top: -75px;
@@ -238,14 +238,8 @@
 
 .guideTextSVG {
   position: relative;
-  background: #f1f1f1; /* Old browsers */
-  background: -moz-linear-gradient(top, #f1f1f1 3%, #ffffff 13%, #ffffff 89%, #f1f1f1 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#f1f1f1), color-stop(13%,#ffffff), color-stop(89%,#ffffff), color-stop(100%,#f1f1f1)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #f1f1f1 3%,#ffffff 13%,#ffffff 89%,#f1f1f1 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #f1f1f1 3%,#ffffff 13%,#ffffff 89%,#f1f1f1 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #f1f1f1 3%,#ffffff 13%,#ffffff 89%,#f1f1f1 100%); /* IE10+ */
-  background: linear-gradient(to bottom, #f1f1f1 3%,#ffffff 13%,#ffffff 89%,#f1f1f1 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
+  background: #f1f1f1; /* Fallback for very old browsers */
+  background: linear-gradient(to bottom, #f1f1f1 3%, #ffffff 13%, #ffffff 89%, #f1f1f1 100%);
 }
 
 .syringe{

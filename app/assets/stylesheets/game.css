@@ -54,7 +54,7 @@
   position:absolute;
   background: #85bc99;
   float:right;
-  color: "white";
+  color: white;
   width:250px;
   height: 45px;
   padding-top: 30px;
@@ -104,7 +104,7 @@
   transition-duration: 0.5s;
 }
 
-// game screen
+/* game screen */
 
 .newGameHeader {
   position: absolute;
@@ -182,7 +182,7 @@
 
 }
 
-// custom game menu
+/* custom game menu */
 #customMenuDiv {
   position: relative;
   top: 50px;

@@ -225,35 +225,18 @@ function homeToTutorial() {
 
     pop = document.getElementById('audio');
 
-    var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
-    var isIE = /*@cc_on!@*/false || document.documentMode;   // At least IE6
 
-
-    if (isFirefox || isIE) {
-        svg = d3.select("body").append("svg")
-            .attr("x", 0)
-            .attr("y", 0)
-            .attr("width", 900)
-            .attr("height", 600 - 45 - 50 - 35 - 20)
-            .attr("class", "svg")
-            .style("pointer-events", "all")
-    }
-    else {
-        svg = d3.select("body").append("svg")
-            .attr("x", 0)
-            .attr("y", 0)
-            .attr({
-                "width": "75%",
-                "height": "65%"
-            })
-            .attr("viewBox", "0 0 " + width + " " + height )
-            .attr("class", "svg")
-            .style("margin-left", 135)
-            .style("pointer-events", "all")
-
-    }
-
-
+    svg = d3.select("body").append("svg")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr({
+            "width": "75%",
+            "height": "65%"
+        })
+        .attr("viewBox", "0 0 " + width + " " + height )
+        .attr("class", "svg")
+        .style("pointer-events", "all")
+        .attr("transform","translate(135,0)")
 
     guideTextSVG = d3.select(".svg").append("svg:svg")
         .attr("class", "guideTextSVG")

@@ -234,7 +234,7 @@ function hiAdvance() {
         recoveryRate = 0.20;
 
         d3.select("#hiSVG").append("circle")
-            .attr("cx",925)
+            .attr("cx",1025)
             .attr("cy",400)
             .attr("r", 16)
             .attr("class", "legendCircle")
@@ -244,7 +244,7 @@ function hiAdvance() {
             .style("stroke", "#707070")
 
         d3.select("#hiSVG").append("text")
-            .attr("x", 960)
+            .attr("x", 1060)
             .attr("y", 410)
             .attr("class", "legendText")
             .style("fill", "#707070")
@@ -256,7 +256,7 @@ function hiAdvance() {
 
 
         d3.select("#hiSVG").append("circle")
-            .attr("cx",925)
+            .attr("cx",1025)
             .attr("cy",475)
             .attr("r", 16)
             .attr("class", "legendCircle")
@@ -266,7 +266,7 @@ function hiAdvance() {
             .style("stroke", "#707070")
 
         d3.select("#hiSVG").append("text")
-            .attr("x", 960)
+            .attr("x", 1060)
             .attr("y", 485)
             .attr("class", "legendText")
             .style("fill", "#707070")
@@ -277,7 +277,7 @@ function hiAdvance() {
             .text("Infected")
 
         d3.select("#hiSVG").append("circle")
-            .attr("cx",925)
+            .attr("cx",1025)
             .attr("cy",550)
             .attr("r", 16)
             .attr("class", "legendCircle")
@@ -288,7 +288,7 @@ function hiAdvance() {
 
 
         d3.select("#hiSVG").append("text")
-            .attr("x", 960)
+            .attr("x", 1060)
             .attr("y", 560)
             .attr("class", "legendText")
             .style("fill", "#707070")
@@ -299,7 +299,7 @@ function hiAdvance() {
             .text("Recovered")
 
         d3.select("#hiSVG").append("circle")
-            .attr("cx",925)
+            .attr("cx",1025)
             .attr("cy",625)
             .attr("r", 16)
             .attr("class", "legendCircle")
@@ -309,7 +309,7 @@ function hiAdvance() {
             .style("stroke", "#707070")
 
         d3.select("#hiSVG").append("text")
-            .attr("x", 960)
+            .attr("x", 1060)
             .attr("y", 635)
             .attr("class", "legendText")
             .style("fill", "#707070")

@@ -18,6 +18,7 @@ function drawPlayNet() {
         .attr("id", "playNetSVG")
         .attr("height", 600)
         .attr("width", 400)
+        .attr("transform","translate(-190, 0)")
 
 
     force = d3.layout.force()

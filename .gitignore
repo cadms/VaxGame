@@ -6,7 +6,7 @@
 log/development.log
 
 *.log
-
+.env
 *.rbc
 *.sassc
 .sass-cache

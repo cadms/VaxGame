@@ -18,28 +18,28 @@ function init_hiSVG() {
     var isIE = /*@cc_on!@*/false || document.documentMode;   // At least IE6
 
 
-    if (isFirefox || isIE) {
-        hiSVG = d3.select("body").append("svg")
-            .attr({
-                "width": 950,
-                "height": 600
-            })
-            .attr("id", "hiSVG")
-            .attr("pointer-events", "all")
-            .append('svg:g');
-
-    }
-    else {
-        hiSVG = d3.select("body").append("svg")
-            .attr({
-                "width": "100%",
-                "height": "70%"  //footer takes ~12.5% of the page
-            })
-            .attr("viewBox", "0 0 " + width + " " + height )
-            .attr("id", "hiSVG")
-            .attr("pointer-events", "all")
-            .append('svg:g');
-    }
+    // if (isFirefox || isIE) {
+    //     hiSVG = d3.select("body").append("svg")
+    //         .attr({
+    //             "width": 950,
+    //             "height": 600
+    //         })
+    //         .attr("id", "hiSVG")
+    //         .attr("pointer-events", "all")
+    //         .append('svg:g');
+    //
+    // }
+    // else {
+    hiSVG = d3.select("body").append("svg")
+        .attr({
+            "width": "100%",
+            "height": "70%"  //footer takes ~12.5% of the page
+        })
+        .attr("viewBox", "0 0 " + width + " " + height )
+        .attr("id", "hiSVG")
+        .attr("pointer-events", "all")
+        .append('svg:g');
+    // }
 
 }
 

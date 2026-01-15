@@ -57,6 +57,9 @@ function drawRepeatNet() {
         .attr("id", "playNetSVG")
         .attr("height", 300)
         .attr("width", 300)
+        .attr("transform","scale(0.6, 0.6) translate(-65, 190)")
+        // .attr("transform","scale(0.6, 0.85) translate(-190, 0)")
+    // transform="scale(0.4, 0.85) translate(-200, 0)"
 
 
     force = d3.layout.force()

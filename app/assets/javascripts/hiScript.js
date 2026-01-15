@@ -103,6 +103,7 @@ function hiAdvance() {
                                     .style("font-family", "Nunito")
                                     .style("font-weight", "500")
                                     .style("font-size", "12px")
+                                    .attr("transform","translate(-190, 0)")
                                     .text(globalMaxConnected);
                                 return 18;
                             }
@@ -589,7 +590,7 @@ function getPathogen_xyCoords(newInfections) {
 function createGamePathogensHI() {
     xyCoords = getPathogen_xyCoords(newInfections);
 
-    var pathogen = hiSVG.selectAll(".pathogen")
+    var pathogen = playNetSVG.selectAll(".pathogen")
         .data(xyCoords)
         .enter()
         .append("circle")

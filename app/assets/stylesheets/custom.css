@@ -1,14 +1,11 @@
-@import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Nunito:300,400,700);
 
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #f1f1f1;
+/* $grayMediumLight: #f1f1f1; */
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -19,13 +16,13 @@ $grayMediumLight: #f1f1f1;
 }
 
 svg {
-  background-color: $grayMediumLight;
+  background-color: #f1f1f1;
 
 
 }
 
 html {
-  background-color: $grayMediumLight;
+  background-color: #f1f1f1;
   height: 768px;
 
 }
@@ -33,7 +30,7 @@ html {
 body {
   min-width: 780px;
   min-height: 700px;
-  background-color: $grayMediumLight;
+  background-color: #f1f1f1;
 }
 
 

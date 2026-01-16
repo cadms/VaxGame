@@ -1,9 +1,10 @@
-FROM ruby:2.6.8-slim
+FROM ruby:4.0.1-slim
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y \
     build-essential \
     nodejs \
+    libyaml-dev \
     libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/*
 

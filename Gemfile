@@ -1,15 +1,14 @@
 source 'https://rubygems.org'
-ruby "2.6.8"
+ruby "4.0.1"
 
 gem 'gon'
-gem 'strong_parameters'
-gem 'rails', '3.2.11'
-gem 'bootstrap-sass', '2.1'
-gem 'sqlite3', '~> 1.3.5'
-gem 'json', '~>1.8'
+gem 'rails', '8.1.2'
+gem 'sqlite3', '~> 2.9.0'
+gem 'json', '~> 2.18'
+gem 'sprockets-rails'
+gem 'puma'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
 end
 

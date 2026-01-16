@@ -11,10 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require d3.v3.min
 //= require netrics
 //= require sir
-//= require jquery_ujs
 
 
 

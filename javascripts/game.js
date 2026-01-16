@@ -796,10 +796,11 @@ function initGameSpace() {
     if (difficultyString == "hard") refusersPresent();
     if (difficultyString == null || numberOfRefusers>0) refusersPresent();
 
-    d3.enter().append("rect")
-        .attr("class", "background")
-        .style("visibility", "hidden")
-        .style("cursor", "crosshair");
+    // d3.selectAll(".node").style("cursor", "crosshair");
+    // d3.enter().append("rect")
+    //     .attr("class", "background")
+    //     .style("visibility", "hidden")
+    //     .style("cursor", "crosshair");
 
     if (toggleDegree && difficultyString == "easy") {
         charge = -850;

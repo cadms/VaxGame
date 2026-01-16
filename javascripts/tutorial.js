@@ -230,13 +230,12 @@ function homeToTutorial() {
         .attr("x", 0)
         .attr("y", 0)
         .attr({
-            "width": "75%",
-            "height": "65%"
+            "width": "100%",
+            "height": "85%"
         })
         .attr("viewBox", "0 0 " + width + " " + height )
         .attr("class", "svg")
         .style("pointer-events", "all")
-        .attr("transform","translate(135,0)")
 
     guideTextSVG = d3.select(".svg").append("svg:svg")
         .attr("class", "guideTextSVG")

@@ -878,8 +878,8 @@ function hideQuarantineIcon() {
 
 function activateVaxPhase() {
     vaccinateMode = true;
-    d3.selectAll(".node").style("cursor", 'url(/assets/vax_cursor.cur)');
-    d3.select(".gameSVG").style("cursor", 'url(/assets/vax_cursor.cur)');
+    d3.selectAll(".node").style("cursor", 'url(images/vax_cursor.cur)');
+    d3.select(".gameSVG").style("cursor", 'url(images/vax_cursor.cur)');
     d3.select(".vaccineCounterText").text(numberOfVaccines);
     d3.select(".vaccineDepressedState").style("visibility", "visible")
 
@@ -888,8 +888,8 @@ function activateVaxPhase() {
 function activateQuarantinePhase() {
     vaccinateMode = false;
     quarantineMode = true;
-    d3.selectAll(".node").style("cursor", 'url(/assets/vax_cursor.cur)');
-    d3.select(".gameSVG").style("cursor", 'url(/assets/vax_cursor.cur)');
+    d3.selectAll(".node").style("cursor", 'url(images/vax_cursor.cur)');
+    d3.select(".gameSVG").style("cursor", 'url(images/vax_cursor.cur)');
     d3.select(".quarantineDepressedState").style("visibility", "visible");
 
 

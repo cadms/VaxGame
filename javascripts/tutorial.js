@@ -1467,8 +1467,8 @@ function activateVaccinationMode() {
 
 
     vaccinateMode = true;
-    d3.selectAll(".node").style("cursor", 'url(/assets/vax_cursor.cur)');
-    d3.select(".svg").style("cursor", 'url(/assets/vax_cursor.cur)');
+    d3.selectAll(".node").style("cursor", 'url(images/vax_cursor.cur)');
+    d3.select(".svg").style("cursor", 'url(images/vax_cursor.cur)');
     vaccineResearched = true;
     intervention = true;
     d3.select(".vaccineCounterText")
@@ -1485,8 +1485,8 @@ function activateQuarantineMode() {
     friction = 0.9;
     vaccinateMode = false;
     quarantineMode = true;
-    d3.selectAll(".node").style("cursor", 'url(/assets/vax_cursor.cur)');
-    d3.select(".svg").style("cursor", 'url(/assets/vax_cursor.cur)');
+    d3.selectAll(".node").style("cursor", 'url(images/vax_cursor.cur)');
+    d3.select(".svg").style("cursor", 'url(images/vax_cursor.cur)');
     d3.select(".quarantineDepressedState").style("visibility", "visible")
 
     window.setTimeout(startQuarantineOutbreak, 500);

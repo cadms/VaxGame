@@ -841,7 +841,7 @@ function guideRails(back) {
         var img2 = svg.selectAll("image").data([0]);
         img2.enter()
             .append("image")
-            .attr("xlink:href", "/assets/redX.svg")
+            .attr("xlink:href", "images/redX.svg")
             .transition()
             .duration(500)
             .attr("x", "280")

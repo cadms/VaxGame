@@ -140,7 +140,7 @@ function initSocialShare() {
         .attr("y", 100)
         .attr("height", "50px")
         .attr("width", "50px")
-        .attr("xlink:href", "/assets/facebook_icon.png")
+        .attr("xlink:href", "images/facebook_icon.png")
         .attr("id", "facebook")
         .style("cursor", "pointer")
         .attr("opacity", 0)
@@ -156,7 +156,7 @@ function initSocialShare() {
         .attr("y", 100)
         .attr("height", "50px")
         .attr("width", "50px")
-        .attr("xlink:href", "/assets/twitter_icon.png")
+        .attr("xlink:href", "images/twitter_icon.png")
         .attr("id", "twitter")
         .attr("opacity", 0)
         .style("cursor", "pointer")
@@ -170,7 +170,7 @@ function initSocialShare() {
         .attr("y", 100)
         .attr("height", "50px")
         .attr("width", "50px")
-        .attr("xlink:href", "/assets/googleplus_icon.png")
+        .attr("xlink:href", "images/googleplus_icon.png")
         .attr("id", "twitter")
         .attr("opacity", 0)
         .style("cursor", "pointer")
@@ -1301,8 +1301,8 @@ function hideGameQuarantine() {
 
 function activateGameVaccinationMode() {
     vaccinateMode = true;
-    d3.selectAll(".node").style("cursor", 'url(/assets/vax_cursor.cur)');
-    d3.select(".gameSVG").style("cursor", 'url(/assets/vax_cursor.cur)');
+    d3.selectAll(".node").style("cursor", 'url(images/vax_cursor.cur)');
+    d3.select(".gameSVG").style("cursor", 'url(images/vax_cursor.cur)');
     d3.select(".vaccineCounterText").text(numberOfVaccines);
     d3.select(".vaccineDepressedState").style("visibility", "visible")
 
@@ -1311,8 +1311,8 @@ function activateGameVaccinationMode() {
 function activateGameQuarantineMode() {
     vaccinateMode = false;
     quarantineMode = true;
-    d3.selectAll(".node").style("cursor", 'url(/assets/vax_cursor.cur)');
-    d3.select(".gameSVG").style("cursor", 'url(/assets/vax_cursor.cur)');
+    d3.selectAll(".node").style("cursor", 'url(images/vax_cursor.cur)');
+    d3.select(".gameSVG").style("cursor", 'url(images/vax_cursor.cur)');
     d3.select(".quarantineDepressedState").style("visibility", "visible")
 
     gameIndexPatients();
@@ -2038,7 +2038,7 @@ function addShareButtons(bestScore,diffset) {
         .attr("y", 365)
         .attr("height", "50px")
         .attr("width", "50px")
-        .attr("xlink:href", "/assets/facebook_icon.png")
+        .attr("xlink:href", "images/facebook_icon.png")
         .attr("class", "shareIcon")
         .attr("id", "facebook")
         .style("padding", "12px 7px 0px 7px")
@@ -2054,7 +2054,7 @@ function addShareButtons(bestScore,diffset) {
         .attr("y", 365)
         .attr("height", "50px")
         .attr("width", "50px")
-        .attr("xlink:href", "/assets/twitter_icon.png")
+        .attr("xlink:href", "images/twitter_icon.png")
         .attr("class", "shareIcon")
         .attr("id", "twitter")
         .style("padding", "12px 7px 0px 7px")
@@ -2070,7 +2070,7 @@ function addShareButtons(bestScore,diffset) {
         .attr("y", 365)
         .attr("height", "50px")
         .attr("width", "50px")
-        .attr("xlink:href", "/assets/googleplus_icon.png")
+        .attr("xlink:href", "images/googleplus_icon.png")
         .attr("class", "shareIcon")
         .attr("id", "g+")
         .attr("opacity", 0)
@@ -2312,7 +2312,7 @@ function loadConclusionText() {
         .attr("y", 355)
         .attr("height", "50px")
         .attr("width", "50px")
-        .attr("xlink:href", "/assets/facebook_icon.png")
+        .attr("xlink:href", "images/facebook_icon.png")
         .attr("id", "facebook")
         .style("padding", "12px 7px 0px 7px")
         .style("cursor", "pointer")
@@ -2325,7 +2325,7 @@ function loadConclusionText() {
         .attr("y", 355)
         .attr("height", "50px")
         .attr("width", "50px")
-        .attr("xlink:href", "/assets/twitter_icon.png")
+        .attr("xlink:href", "images/twitter_icon.png")
         .attr("id", "twitter")
         .style("padding", "12px 7px 0px 7px")
         .style("width", "25px")
@@ -2339,7 +2339,7 @@ function loadConclusionText() {
         .attr("y", 355)
         .attr("height", "50px")
         .attr("width", "50px")
-        .attr("xlink:href", "/assets/googleplus_icon.png")
+        .attr("xlink:href", "images/googleplus_icon.png")
         .attr("id", "twitter")
         .style("padding", "12px 7px 0px 7px")
         .style("width", "25px")

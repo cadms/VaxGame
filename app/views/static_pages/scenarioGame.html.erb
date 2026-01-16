@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-  <% provide(:title, 'Scenario') %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "jquery.cookie.js" %>
-  <%= javascript_include_tag "footerMenu" %>
-  <%= javascript_include_tag "staticNets" %>
-  <%= javascript_include_tag "scenarioGame" %>
-
-
-
-</head>
-
-<body>
-
+<% provide(:title, 'Scenario') %>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "jquery.cookie.js" %>
+<%= javascript_include_tag "footerMenu" %>
+<%= javascript_include_tag "staticNets" %>
+<%= javascript_include_tag "scenarioGame" %>
 <audio id="audio">
   <source src="/assets/pop.wav" type="audio/wav" />
 </audio>
@@ -31,18 +20,3 @@
   <text id = "quarantineText"> QUARANTINE </text>
   <img id="quarantineIcon" src="/assets/quarantine.svg" onclick=activateGameQuarantineMode()>
 </div>
-
-
-
-
-
-
-
-
-
-
-</body>
-
-
-</html>
-

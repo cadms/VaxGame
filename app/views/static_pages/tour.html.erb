@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <% provide(:title, 'Home') %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "footerMenu" %>
-  <%= javascript_include_tag "tutorial" %>
-  <%= javascript_include_tag "tutorialAdvance" %>
-  <%= javascript_include_tag "tutorialReverse" %>
-
-  <%= csrf_meta_tags %>
-
-</head>
-<body>
-
-
+    <% provide(:title, 'Tour') %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "footerMenu" %>
+    <%= javascript_include_tag "tutorial" %>
+    <%= javascript_include_tag "tutorialAdvance" %>
+    <%= javascript_include_tag "tutorialReverse" %>
     <div class="actionVax" onclick=activateVaccinationMode()>
       <div class="vaccineDepressedState"></div>
       <text id = "vaxShieldText"> VACCINES </text>
@@ -25,6 +15,4 @@
       <text id = "quarantineText"> QUARANTINE </text>
       <img id="quarantineIcon" src="/assets/quarantine.svg" onclick=activateQuarantineMode()>
     </div>
-</body>
-</html>
 

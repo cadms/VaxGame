@@ -4,8 +4,9 @@
   <title><%= full_title(yield(:title)) %></title>
   <%= include_gon %>
   <%= javascript_include_tag "d3.v3.min" %>
-  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= stylesheet_link_tag    "application", media: "all"%>
   <%= csrf_meta_tags %>
+  <meta charset="UTF-8">
   <%= favicon_link_tag "favicon.ico" %>
 
   <% if content_for?(:head) %>
@@ -18,9 +19,6 @@
 
 
 <body>
-
-
-
 <div>  <%= yield %> </div>
 </body>
 </html>

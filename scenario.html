@@ -1,0 +1,186 @@
+
+<!-- BEGIN app/views/layouts/application.html.erb
+--><!DOCTYPE html>
+<html>
+<head>
+    <title>Vax | Gamifying Epidemic Prevention | Scenario Selection</title>
+
+    <script src="javascripts/d3.v3.min.js" type="text/javascript"></script>
+    <!--application.css full-->
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/custom.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/faq.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/fonts.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/game.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/grid.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/herdImmunity.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/jquery-ui.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/scenarioSelect.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/scores.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/tutorial.css" media="all" type="text/css" />
+    <!--end application.css full-->
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+    <meta name="description" content="Vax! is a puzzle-game infused with chance that was inspired by real-world challenges, infectious disease modeling, and addictively rewarding gameplay.">
+
+</head>
+
+
+<body>
+<div>  <!-- BEGIN app/views/static_pages/scenarioSelect.html.erb
+-->    <!--application.js full-->
+    <script src="javascripts/jquery.js" type="text/javascript"></script>
+    <script src="javascripts/netrics.js" type="text/javascript"></script>
+    <script src="javascripts/sir.js" type="text/javascript"></script>
+    <!--end application.js full-->
+    <script src="javascripts/jquery.cookie.js" type="text/javascript"></script>
+    <script src="javascripts/jquery-ui.js"></script>
+    <script src="javascripts/footerMenu.js"></script>
+    <script src="javascripts/scenarioSelect.js"></script>
+
+
+
+    <div id="scenarioAccordion">
+
+        <h3 class="scenarioHead" id="original">Random Networks</h3>
+        <div class="scenarioDiv">
+            <p class="scenarioText" >
+                Original Vax with dynamically generated levels that are designed to resemble human social networks. Complete all difficulties to unlock customizations.
+            </p>
+
+            <div class="scenarioSelect" >
+                <img class="scenarioThumbnail" src="images/randomNet_thumbnail.png">
+                <div class="scenarioAction"  id="originalAction" >
+                    <div class="difficultyPopover"> </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h3 class="scenarioHead" id="restaurant">Restaurant</h3>
+        <div class="scenarioDiv">
+            <p class="scenarioText" >
+                What if the server or bartender at your favorite restaurant decides to come to work with the flu? How many patrons can you save...?
+            </p>
+
+            <div class="scenarioSelect">
+                <img class="scenarioThumbnail" src="images/restaurantNet_thumbnail.png">
+                <div class="scenarioAction"  id="restaurantAction">
+                    <div class="difficultyPopover"> </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <h3 class="scenarioHead" id="theater">Movie Theater / Lecture Hall</h3>
+        <div class="scenarioDiv">
+            <p class="scenarioText" >
+                When was the last time you went to class or saw a movie and didn't hear multiple people sneezing and coughing? Can you keep the auditorium healthy?
+            </p>
+
+            <div class="scenarioSelect">
+                <img class="scenarioThumbnail" src="images/theaterNet_thumbnail.png">
+                <div class="scenarioAction"  id="theaterAction">
+                    <div class="difficultyPopover"> </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <h3 class="scenarioHead" id="club">Organization</h3>
+        <div class="scenarioDiv">
+            <p class="scenarioText" >
+                Pathogens follow us to the gym, our book clubs, and Tee Ball practice. Break this network up before its too late!
+            </p>
+
+            <div class="scenarioSelect">
+                <img class="scenarioThumbnail" src="images/clubNet_thumbnail.png">
+                <div class="scenarioAction" id="clubAction">
+                    <div class="difficultyPopover"> </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h3 class="scenarioHead" id="shop">Endless Queue</h3>
+        <div class="scenarioDiv">
+            <p class="scenarioText" >
+                Ever stand in one of those seemingly endless lines? I wonder how quickly a pathogen would spread there...
+            </p>
+
+            <div class="scenarioSelect">
+                <img class="scenarioThumbnail" src="images/lineNet_thumbnail.png">
+                <div class="scenarioAction" id="shopAction">
+                    <div class="difficultyPopover"> </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h3 class="scenarioHead" id="work">Workplace / School</h3>
+        <div class="scenarioDiv">
+            <p class="scenarioText">
+                Ever wonder why germs spread so readily at work and school? Try quelling the outbreak on this network based on an institute at a large public university.
+            </p>
+
+            <div class="scenarioSelect">
+                <img class="scenarioThumbnail" src="images/workNet_thumbnail.png">
+                <div class="scenarioAction"  id="workAction">
+                    <div class="difficultyPopover"> </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <audio id="audio">
+        <source src="images/pop.wav" type="audio/wav" />
+    </audio>
+
+
+    <div class="actionVax" onclick=activateGameVaccinationMode()>
+        <div class="vaccineDepressedState"></div>
+        <text id = "vaxShieldText"> VACCINES </text>
+        <img id="vaxShieldIcon" src="images/vaxShield.svg" onclick=activateGameVaccinationMode()>
+    </div>
+
+    <div class="actionQuarantine" onclick=activateGameQuarantineMode()>
+        <div class="quarantineDepressedState"></div>
+        <text id = "quarantineText"> QUARANTINE </text>
+        <img id="quarantineIcon" src="images/quarantine.svg" onclick=activateGameQuarantineMode()>
+    </div>
+
+
+    <div id = "customMenuDiv" >
+
+        <div class = "customHeaderFooter" id = "customLevelHeader"> CUSTOM LEVEL </div>
+
+        <div class = "customMenuItem" id = "customNodes"> Nodes: </div>
+        <div id = "nodeSlider">  </div>
+
+        <div class = "customMenuItem" id = "customDegree"> Neighbors: </div>
+        <div id = "degreeSlider" >  </div>
+
+        <div class = "customMenuItem" id = "customVaccines"> Vaccines:  </div>
+        <div id = "vaccineSlider" >  </div>
+
+        <div class = "customMenuItem" id = "customRefusers"> Refusers:  </div>
+        <div id = "refuserSlider" >  </div>
+
+        <div class = "customMenuItem" id = "customOutbreaks"> Outbreaks:  </div>
+        <div id = "outbreakSlider" >  </div>
+
+    </div>
+
+
+
+    <!-- END app/views/static_pages/scenarioSelect.html.erb --> </div>
+</body>
+</html><!-- END app/views/layouts/application.html.erb -->

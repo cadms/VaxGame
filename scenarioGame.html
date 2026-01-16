@@ -1,0 +1,58 @@
+<!-- BEGIN app/views/layouts/application.html.erb
+--><!DOCTYPE html>
+<html>
+<head>
+    <title>Vax | Gamifying Epidemic Prevention | Scenario</title>
+
+    <script src="javascripts/d3.v3.min.js" type="text/javascript"></script>
+    <!--application.css full-->
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/custom.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/faq.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/fonts.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/game.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/grid.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/herdImmunity.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/jquery-ui.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/scenarioSelect.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/scores.css" media="all" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/tutorial.css" media="all" type="text/css" />
+    <!--end application.css full-->
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+    <meta name="description" content="Vax! is a puzzle-game infused with chance that was inspired by real-world challenges, infectious disease modeling, and addictively rewarding gameplay.">
+
+</head>
+
+
+<body>
+<div>  <!-- BEGIN app/views/static_pages/scenarioGame.html.erb
+-->    <!--application.js full-->
+    <script src="javascripts/jquery.js" type="text/javascript"></script>
+    <script src="javascripts/netrics.js" type="text/javascript"></script>
+    <script src="javascripts/sir.js" type="text/javascript"></script>
+    <!--end application.js full-->
+    <script src="javascripts/jquery.cookie.js"></script>
+    <script src="javascripts/footerMenu.js"></script>
+    <script src="javascripts/staticNets.js"></script>
+    <script src="javascripts/scenarioGame.js"></script>
+    <audio id="audio">
+        <source src="images/pop.wav" type="audio/wav" />
+    </audio>
+
+
+    <div class="actionVax" onclick=activateGameVaccinationMode()>
+        <div class="vaccineDepressedState"></div>
+        <text id = "vaxShieldText"> VACCINES </text>
+        <img id="vaxShieldIcon" src="images/vaxShield.svg" onclick=activateGameVaccinationMode()>
+    </div>
+
+    <div class="actionQuarantine" onclick=activateGameQuarantineMode()>
+        <div class="quarantineDepressedState"></div>
+        <text id = "quarantineText"> QUARANTINE </text>
+        <img id="quarantineIcon" src="images/quarantine.svg" onclick=activateGameQuarantineMode()>
+    </div>
+    <!-- END app/views/static_pages/scenarioGame.html.erb --> </div>
+</body>
+</html><!-- END app/views/layouts/application.html.erb -->

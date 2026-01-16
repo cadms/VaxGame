@@ -64,7 +64,7 @@ var savesIcon = d3.select(".savesSVG").selectAll("image").data([0]);
 
 savesIcon.enter()
     .append("image")
-    .attr("xlink:href", "/assets/savesIcon.svg")
+    .attr("xlink:href", "images/savesIcon.svg")
     .attr("x", "-24")
     .attr("y", "-12")
     .style("position", "absolute")
@@ -118,7 +118,7 @@ function selectScenario(difficulty) {
             window.location.href = '/scenario'
         })
 
-    window.setTimeout(function() {window.location.href = '/scenarioGame'}, 500)
+    window.setTimeout(function() {window.location.href = 'scenarioGame.html'}, 500)
 }
 
 function createUnlocksCookie() {
@@ -1236,7 +1236,7 @@ function drawLocks() {
     var workLockIcon = workSVG.selectAll("image").data([0]);
     workLockIcon.enter()
         .append("image")
-        .attr("xlink:href", "/assets/lockIcon.svg")
+        .attr("xlink:href", "images/lockIcon.svg")
         .attr("x", "-10")
         .attr("y", "-10")
         .attr("width", "50")
@@ -1262,7 +1262,7 @@ function drawLocks() {
     var theaterLockIcon = theaterSVG.selectAll("image").data([0]);
     theaterLockIcon.enter()
         .append("image")
-        .attr("xlink:href", "/assets/lockIcon.svg")
+        .attr("xlink:href", "images/lockIcon.svg")
         .attr("x", "-10")
         .attr("y", "-10")
         .style("position", "absolute")
@@ -1290,7 +1290,7 @@ function drawLocks() {
     var restaurantLockIcon = restaurantSVG.selectAll("image").data([0]);
     restaurantLockIcon.enter()
         .append("image")
-        .attr("xlink:href", "/assets/lockIcon.svg")
+        .attr("xlink:href", "images/lockIcon.svg")
         .attr("x", "-10")
         .attr("y", "-10")
         .style("position", "absolute")
@@ -1318,7 +1318,7 @@ function drawLocks() {
     var clubLockIcon = clubSVG.selectAll("image").data([0]);
     clubLockIcon.enter()
         .append("image")
-        .attr("xlink:href", "/assets/lockIcon.svg")
+        .attr("xlink:href", "images/lockIcon.svg")
         .attr("x", "-10")
         .attr("y", "-10")
         .style("position", "absolute")
@@ -1345,7 +1345,7 @@ function drawLocks() {
     var shopLockIcon = shopSVG.selectAll("image").data([0]);
     shopLockIcon.enter()
         .append("image")
-        .attr("xlink:href", "/assets/lockIcon.svg")
+        .attr("xlink:href", "images/lockIcon.svg")
         .attr("x", "-10")
         .attr("y", "-10")
         .style("position", "absolute")
@@ -1375,7 +1375,7 @@ function drawLocks() {
     var originalLockIcon = originalSVG.selectAll("image").data([0]);
     originalLockIcon.enter()
         .append("image")
-        .attr("xlink:href", "/assets/lockIcon.svg")
+        .attr("xlink:href", "images/lockIcon.svg")
         .attr("x", "-10")
         .attr("y", "-10")
         .style("position", "absolute")

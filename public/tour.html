@@ -1,0 +1,56 @@
+
+<!-- BEGIN app/views/layouts/application.html.erb
+--><!DOCTYPE html>
+<html>
+<head>
+    <title>Vax | Gamifying Epidemic Prevention | Tour</title>
+
+    <script src="javascripts/d3.v3.min.js"></script>
+    <!--application.css full-->
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/custom.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/faq.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/fonts.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/game.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/grid.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/herdImmunity.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/jquery-ui.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/scenarioSelect.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/scores.css" media="all" />
+    <link rel="stylesheet" href="stylesheets/tutorial.css" media="all" />
+    <!--end application.css full-->
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+    <meta name="description" content="Vax! is a puzzle-game infused with chance that was inspired by real-world challenges, infectious disease modeling, and addictively rewarding gameplay.">
+
+</head>
+
+
+<body>
+<div>  <!-- BEGIN app/views/static_pages/tour.html.erb
+-->
+    <!--application.js full-->
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/netrics.js"></script>
+    <script src="javascripts/sir.js"></script>
+    <!--end application.js full-->
+    <script src="javascripts/footerMenu.js"></script>
+    <script src="javascripts/tutorial.js"></script>
+    <script src="javascripts/tutorialAdvance.js"></script>
+    <script src="javascripts/tutorialReverse.js"></script>
+    <div class="actionVax" onclick=activateVaccinationMode()>
+        <div class="vaccineDepressedState"></div>
+        <text id = "vaxShieldText"> VACCINES </text>
+        <img id="vaxShieldIcon" src="images/vaxShield.svg" onclick=activateVaccinationMode()>
+    </div>
+
+    <div class="actionQuarantine" onclick=activateQuarantineMode()>
+        <div class="quarantineDepressedState"></div>
+        <text id = "quarantineText"> QUARANTINE </text>
+        <img id="quarantineIcon" src="images/quarantine.svg" onclick=activateQuarantineMode()>
+    </div>
+
+    <!-- END app/views/static_pages/tour.html.erb --> </div>
+</body>
+</html><!-- END app/views/layouts/application.html.erb -->

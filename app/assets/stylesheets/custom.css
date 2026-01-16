@@ -5,9 +5,9 @@
 
 /* $grayMediumLight: #f1f1f1; */
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/**, *::before, *::after {*/
+/*  box-sizing: border-box;*/
+/*}*/
 
 /* universal */
 

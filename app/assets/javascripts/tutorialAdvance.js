@@ -309,6 +309,10 @@ function restoreNetworkLesson() {
     d3.select("body").append("div")
         .attr("class", "vaxLogoDiv")
         .text("VAX!")
+        .style("cursor", "pointer")
+        .on("click", function() {
+            window.location.href = '/'
+        })
 
     startButton = d3.select(".guideTextSVG").append("text")
         .attr("class", "startButton")

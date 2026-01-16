@@ -592,7 +592,7 @@ function initGameSpace() {
         .attr("viewBox", "0 0 " + width + " " + height )
         .attr("class", "gameSVG")
         .attr("pointer-events", "all")
-        .attr("transform","translate(135,0)")
+        .attr("transform","translate(135,10)")
         .append('svg:g');
 
 
@@ -959,11 +959,11 @@ function speedModeGameClick(node) {
 
 // tick function, which does the physics for each individual node & link.
 function tick() {
-    clickArea.attr("cx", function(d) { return d.x = Math.max(8, Math.min(width - 8, d.x)); })
-        .attr("cy", function(d) { return d.y = Math.max(8, Math.min((height *.85), d.y)); });
+    clickArea.attr("cx", function(d) { var r = nodeSize(d) + 5; return d.x = Math.max(r, Math.min(width - r, d.x)); })
+        .attr("cy", function(d) { var r = nodeSize(d) + 5; return d.y = Math.max(r, Math.min((height *.85), d.y)); });
 
-    node.attr("cx", function(d) { return d.x = Math.max(8, Math.min(width - 8, d.x)); })
-        .attr("cy", function(d) { return d.y = Math.max(8, Math.min((height *.85), d.y)); });
+    node.attr("cx", function(d) { var r = nodeSize(d) + 5; return d.x = Math.max(r, Math.min(width - r, d.x)); })
+        .attr("cy", function(d) { var r = nodeSize(d) + 5; return d.y = Math.max(r, Math.min((height *.85), d.y)); });
 
     link.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
@@ -2005,7 +2005,7 @@ function initScoreRecap() {
 
     d3.select(".gameSVG").append("text")
         .attr("class", "networkSizeText")
-        .attr("x", -85)
+        .attr("x", 0)
         .attr("y", 90)
         .style("font-size", "40px")
         .text("Network Size: " + numberOfIndividuals);
@@ -2109,7 +2109,7 @@ function addTextRecap(bar, passed) {
                 .style("font-weight", "500")
                 .style("fill", "#707070")
                 .attr("class", "recapBinaryText")
-                .attr("x", 732)
+                .attr("x", 660)
                 .attr("y", 180)
                 .text("Play Again!")
 
@@ -2135,13 +2135,13 @@ function addTextRecap(bar, passed) {
             .style("font-weight", "500")
             .style("fill", "#707070")
             .attr("class", "recapBinaryText")
-            .attr("x", 749)
+            .attr("x", 660)
             .attr("y", 180)
             .text("Passed!")
 
         d3.select(".gameSVG").append("text")
             .attr("class", "recapText1")
-            .attr("x", 755)
+            .attr("x", 660)
             .attr("y", 230)
             .style("font-family", "Nunito")
             .style("font-size", "20px")
@@ -2151,7 +2151,7 @@ function addTextRecap(bar, passed) {
 
         d3.select(".gameSVG").append("text")
             .attr("class", "recapText2")
-            .attr("x", 755)
+            .attr("x", 660)
             .attr("y", 255)
             .style("font-family", "Nunito")
             .style("font-size", "20px")
@@ -2161,7 +2161,7 @@ function addTextRecap(bar, passed) {
 
         d3.select(".gameSVG").append("text")
             .attr("class", "recapText3")
-            .attr("x", 755)
+            .attr("x", 660)
             .attr("y", 280)
             .style("font-family", "Nunito")
             .style("font-size", "20px")
@@ -2205,13 +2205,13 @@ function addTextRecap(bar, passed) {
             .style("font-weight", "500")
             .style("fill", "#707070")
             .attr("class", "recapBinaryText")
-            .attr("x", 735)
+            .attr("x", 660)
             .attr("y", 180)
             .text("Try Again!")
 
         d3.select(".gameSVG").append("text")
             .attr("class", "recapText1")
-            .attr("x", 755)
+            .attr("x", 660)
             .attr("y", 225)
             .style("font-family", "Nunito")
             .style("font-size", "20px")
@@ -2221,7 +2221,7 @@ function addTextRecap(bar, passed) {
 
         d3.select(".gameSVG").append("text")
             .attr("class", "recapText2")
-            .attr("x", 730)
+            .attr("x", 660)
             .attr("y", 250)
             .style("font-family", "Nunito")
             .style("font-size", "20px")
@@ -2231,7 +2231,7 @@ function addTextRecap(bar, passed) {
 
         d3.select(".gameSVG").append("text")
             .attr("class", "recapText3")
-            .attr("x", 742)
+            .attr("x", 660)
             .attr("y", 273)
             .style("font-family", "Nunito")
             .style("font-size", "20px")

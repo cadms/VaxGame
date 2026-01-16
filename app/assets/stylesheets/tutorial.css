@@ -117,7 +117,7 @@
 .menuItemNormal {
   position: relative;
   float: left;
-  font-size: 15px;
+  font-size: 18px;
   font-family: "Nunito";
   font-weight: 300;
   color: #ffffff;
@@ -131,7 +131,7 @@
 .menuItemBold {
   position: relative;
   float: left;
-  font-size: 15px;
+  font-size: 18px;
   color: #007138;
   font-family: "Nunito";
   font-weight: 300;

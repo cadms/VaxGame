@@ -21,6 +21,8 @@ function initFooter() {
         .attr("class", "gameMenuBoxItem")
         .attr("id", "helpNav")
         .text("FAQ")
+        .style("font-family", "Nunito")
+        .style("font-size", "16px")
         .on("click", function() {
             window.location.href = '/faq'
         })
@@ -35,6 +37,8 @@ function initFooter() {
         .attr("class", "gameMenuBoxItem")
         .attr("id", "newGameNav")
         .text("New Game")
+        .style("font-family", "Nunito")
+        .style("font-size", "20px")
         .on("click", function() {
             window.location.href = '/game'
         })

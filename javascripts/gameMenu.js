@@ -286,36 +286,36 @@ function initCustomMenu() {
 }
 
 var maxVax = parseInt($.cookie('customNodes'))
-$(function() {
-    $( "#nodeSlider").slider({
-        range: "min",
-        min: 10,
-        max: 500,
-        value: customNodeChoice,
-        slide: function (event, ui) {
-            $.cookie.json = false;
-            $.cookie('customNodes', ui.value)
-            $.cookie.json = true;
-            $("#customNodes").text("Nodes: " + ui.value);
-            customNodeChoice = ui.value;
-
-            customVaccineChoice = Math.round(0.10 * customNodeChoice)
-            d3.select("#customVaccines").text("Vaccines: " + Math.round(0.10 * customNodeChoice))
-            $( "#vaccineSlider").slider({
-                max: customNodeChoice,
-                value: Math.round(0.10 * customNodeChoice)});
-
-            customRefuserChoice = Math.round(0.05 * customNodeChoice)
-            d3.select("#customRefusers").text("Refusers: " + Math.round(0.05 * customNodeChoice))
-            $( "#refuserSlider").slider({
-                max: customNodeChoice,
-                value: Math.round(0.05 * customNodeChoice)});
-
-
-        }
-    });
-    $( "#nodeSlider" ).slider( "value", parseInt($.cookie('customNodes')));
-});
+// $(function() {
+//     $( "#nodeSlider").slider({
+//         range: "min",
+//         min: 10,
+//         max: 500,
+//         value: customNodeChoice,
+//         slide: function (event, ui) {
+//             $.cookie.json = false;
+//             $.cookie('customNodes', ui.value)
+//             $.cookie.json = true;
+//             $("#customNodes").text("Nodes: " + ui.value);
+//             customNodeChoice = ui.value;
+//
+//             customVaccineChoice = Math.round(0.10 * customNodeChoice)
+//             d3.select("#customVaccines").text("Vaccines: " + Math.round(0.10 * customNodeChoice))
+//             $( "#vaccineSlider").slider({
+//                 max: customNodeChoice,
+//                 value: Math.round(0.10 * customNodeChoice)});
+//
+//             customRefuserChoice = Math.round(0.05 * customNodeChoice)
+//             d3.select("#customRefusers").text("Refusers: " + Math.round(0.05 * customNodeChoice))
+//             $( "#refuserSlider").slider({
+//                 max: customNodeChoice,
+//                 value: Math.round(0.05 * customNodeChoice)});
+//
+//
+//         }
+//     });
+//     $( "#nodeSlider" ).slider( "value", parseInt($.cookie('customNodes')));
+// });
 
 $(function() {
     $( "#degreeSlider").slider({

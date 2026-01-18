@@ -123,9 +123,9 @@ function selectScenario(difficulty) {
 
 function createUnlocksCookie() {
     // object of unlocks for first scenario & random
-    var initial = {easy: true, medium: false, hard:false};
+    var initial = {easy: true, medium: true, hard:true};
     // object of unlocks for all the rest
-    var locked = {easy: false, medium: false, hard:false};
+    var locked = {easy: true, medium: true, hard:true};
 
 
     // unlocks object, to be strified into JSON cookie
@@ -340,8 +340,8 @@ function setDifficultyConstants(scenarioTitle, difficulty) {
 var buttonsDrawn = false;
 
 window.setTimeout(function() {
-    drawButtons();
     checkUnlockables();
+    drawButtons();
 }, 100)
 
 function drawButtons() {

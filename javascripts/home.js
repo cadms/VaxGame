@@ -265,7 +265,117 @@ d3.select(".homeSVG").append("text")
     })
 
 d3.select(".homeSVG").append("text")
-    .attr("x", 718)
+    .attr("class", "homeHI")
+    .attr("x", 694)
     .attr("y", 686)
     .attr("fill", "#707070")
+    .attr("font-size", "23px")
+    .style("font-family", "Nunito")
+    .style("cursor", "pointer")
+    .text("Clear Progress >")
+    .on("mouseover", function(d) {
+        d3.select(this).style("fill", "#2692F2")
+    })
+    .on("mouseout", function(d) {
+        d3.select(this).style("fill", "#707070")
+    })
+    .on("click", function() {
+        showClearProgressConfirmation()
+    })
+
+d3.select(".homeSVG").append("text")
+    .attr("x", 718)
+    .attr("y", 718)
+    .attr("fill", "#707070")
     .text("Salathé Group | 2014")
+
+function showClearProgressConfirmation() {
+    // Remove any existing confirmation dialog
+    d3.select(".clearProgressOverlay").remove();
+
+    // Create overlay
+    var overlay = d3.select("body").append("div")
+        .attr("class", "clearProgressOverlay")
+        .style("position", "fixed")
+        .style("top", "0")
+        .style("left", "0")
+        .style("width", "100%")
+        .style("height", "100%")
+        .style("background", "rgba(0,0,0,0.5)")
+        .style("z-index", "1000")
+        .style("display", "flex")
+        .style("justify-content", "center")
+        .style("align-items", "center")
+
+    // Create dialog box
+    var dialog = overlay.append("div")
+        .attr("class", "clearProgressDialog")
+        .style("background", "#f1f1f1")
+        .style("padding", "30px")
+        .style("border-radius", "5px")
+        .style("text-align", "center")
+        .style("box-shadow", "5px 6px #838383")
+
+    dialog.append("p")
+        .style("font-family", "Nunito")
+        .style("font-size", "20px")
+        .style("color", "#707070")
+        .style("margin-bottom", "20px")
+        .text("Are you sure you want to clear your progress?")
+
+    dialog.append("p")
+        .style("font-family", "Nunito")
+        .style("font-size", "14px")
+        .style("color", "#707070")
+        .style("margin-bottom", "25px")
+        .text("This will erase all game data and cannot be undone.")
+
+    // Yes button
+    dialog.append("span")
+        .style("font-family", "Nunito")
+        .style("font-size", "18px")
+        .style("color", "#ef5555")
+        .style("cursor", "pointer")
+        .style("margin-right", "40px")
+        .text("Yes, Clear")
+        .on("mouseover", function() {
+            d3.select(this).style("color", "#ff0000")
+        })
+        .on("mouseout", function() {
+            d3.select(this).style("color", "#ef5555")
+        })
+        .on("click", function() {
+            clearAllCookies();
+            d3.select(".clearProgressOverlay").remove();
+            window.location.reload();
+        })
+
+    // No button
+    dialog.append("span")
+        .style("font-family", "Nunito")
+        .style("font-size", "18px")
+        .style("color", "#85bc99")
+        .style("cursor", "pointer")
+        .text("Cancel")
+        .on("mouseover", function() {
+            d3.select(this).style("color", "#2692F2")
+        })
+        .on("mouseout", function() {
+            d3.select(this).style("color", "#85bc99")
+        })
+        .on("click", function() {
+            d3.select(".clearProgressOverlay").remove();
+        })
+}
+
+function clearAllCookies() {
+    // Clear all vax-related cookies
+    // var cookies = ['vaxUnlocks', 'vaxScores', 'vaxSaves', 'vaxCurrentGame', 'vaxCurrentScenarioScores'];
+    // cookies.forEach(function(cookieName) {
+    //     document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    // });
+    var cookies = $.cookie();
+    for(var cookie in cookies) {
+        $.removeCookie(cookie);
+    }
+}

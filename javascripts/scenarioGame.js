@@ -183,30 +183,15 @@ function drawScenarioSpace() {
     timeToStop        = false ;
     gameIsOver        = false ;
 
-    var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
-    var isIE = /*@cc_on!@*/false || document.documentMode;   // At least IE6
-
-    if (isFirefox || isIE) {
-        scenarioSVG = d3.select("body").append("svg")
-            .attr({
-                "width": 950,
-                "height": 768 - 45
-            })
-            .attr("class", "scenarioSVG")
-            .attr("pointer-events", "all")
-            .append('svg:g');
-    }
-    else {
-        scenarioSVG = d3.select("body").append("svg")
-            .attr({
-                "width": "100%",
-                "height": "87.5%"  //footer takes ~12.5% of the page
-            })
-            .attr("viewBox", "0 0 " + width + " " + height )
-            .attr("class", "scenarioSVG")
-            .attr("pointer-events", "all")
-            .append('svg:g');
-    }
+    scenarioSVG = d3.select("body").append("svg")
+        .attr({
+            "width": "100%",
+            "height": "87.5%"  //footer takes ~12.5% of the page
+        })
+        .attr("viewBox", "0 0 " + width + " " + height )
+        .attr("class", "scenarioSVG")
+        .attr("pointer-events", "all")
+        .append('svg:g');
 
     // initialize force layout. point to nodes & links.  size based on prior height and width.  set particle charge. setup step-wise force settling.
     force = d3.layout.force()

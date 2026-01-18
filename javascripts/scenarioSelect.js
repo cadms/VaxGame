@@ -37,6 +37,14 @@ $( "#scenarioAccordion" ).accordion({ heightStyle: "content" });
 
 window.setTimeout(checkUnlockables, 200);
 
+// Handle back-forward cache (bfcache) in Firefox/Safari
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+        // Page was restored from bfcache, force a reload
+        window.location.reload();
+    }
+});
+
 
 // vax logo, top left
 d3.select("body").append("div")

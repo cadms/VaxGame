@@ -207,7 +207,7 @@ function postHighScores() {
                     .attr("class", "bestScoreText")
                     .attr("x", 60)
                     .attr("y", yPos + 20)
-                    .text("Best: " + bestScore + " saved");
+                    .text("Best: " + bestScore);
             }
         }
     }

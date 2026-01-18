@@ -67,7 +67,7 @@
 #workSVG, #theaterSVG, #restaurantSVG, #clubSVG, #shopSVG, #originalSVG {
   pointer-events: all;
   position: absolute;
-  width: 250px;
+  width: 300px;
   height: 240px;
 }
 

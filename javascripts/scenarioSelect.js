@@ -129,7 +129,7 @@ function createUnlocksCookie() {
 
 
     // unlocks object, to be strified into JSON cookie
-    var unlocks = {work: {difficulty: locked}, theater: {difficulty:locked}, restaurant: {difficulty:locked}, club:  {difficulty:locked}, shop:  {difficulty:locked}, original:  {difficulty:initial}}
+    unlocks = {work: {difficulty: locked}, theater: {difficulty:locked}, restaurant: {difficulty:locked}, club:  {difficulty:locked}, shop:  {difficulty:locked}, original:  {difficulty:initial}}
 
     // create JSON unlocks cookie
     $.cookie.json = true;

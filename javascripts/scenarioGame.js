@@ -67,7 +67,7 @@ var game = false;
 
 runScenario();
 
-d3.select(".scenarioSVG").append("text").attr("x", 350).attr("y", 50).text("UNDER CONSTRUCTION...")
+// d3.select(".scenarioSVG").append("text").attr("x", 350).attr("y", 50).text("UNDER CONSTRUCTION...")
 
 function runScenario() {
     setCurrentGameConditions();

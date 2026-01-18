@@ -155,7 +155,7 @@ function checkUnlockables() {
     else modifyMenuByUnlocks();
 
     checkSavesCookie();
-    checkScoresCookie();
+    // checkScoresCookie is called after drawButtons to ensure SVGs exist
 
 }
 
@@ -168,10 +168,67 @@ function checkScoresCookie() {
 }
 
 function postHighScores() {
+    $.cookie.json = true;
+    var vaxScores = $.cookie('vaxScores');
+    if (!vaxScores) return;
 
+    // Map of scenario keys to SVG IDs
+    var scenarios = {
+        work: "#workSVG",
+        theater: "#theaterSVG",
+        restaurant: "#restaurantSVG",
+        club: "#clubSVG",
+        shop: "#shopSVG",
+        original: "#originalSVG"
+    };
 
-    // this will read the high scores cookie and write the relevant hiScore next-to/below/whatevs the easy/med/hard text
+    // Y positions for each difficulty (matching the button positions)
+    var difficultyPositions = {
+        easy: 50,
+        medium: 125,
+        hard: 200
+    };
 
+    // For each scenario, display best scores
+    for (var scenarioKey in scenarios) {
+        var svgId = scenarios[scenarioKey];
+        var scenarioScores = vaxScores[scenarioKey];
+        if (!scenarioScores) continue;
+
+        // For each difficulty
+        for (var diff in difficultyPositions) {
+            var yPos = difficultyPositions[diff];
+
+            // Get best score across both game modes
+            var bestScore = getBestScore(scenarioScores, diff);
+
+            if (bestScore !== null) {
+                d3.select(svgId).append("text")
+                    .attr("class", "bestScoreText")
+                    .attr("x", 60)
+                    .attr("y", yPos + 20)
+                    .text("Best: " + bestScore + " saved");
+            }
+        }
+    }
+}
+
+function getBestScore(scenarioScores, difficulty) {
+    var allScores = [];
+
+    // Collect scores from realTime mode
+    if (scenarioScores.realTime && scenarioScores.realTime[difficulty]) {
+        allScores = allScores.concat(scenarioScores.realTime[difficulty]);
+    }
+
+    // Collect scores from turnBased mode
+    if (scenarioScores.turnBased && scenarioScores.turnBased[difficulty]) {
+        allScores = allScores.concat(scenarioScores.turnBased[difficulty]);
+    }
+
+    if (allScores.length === 0) return null;
+
+    return Math.max.apply(null, allScores);
 }
 
 function createScoresCookie() {
@@ -350,6 +407,7 @@ var buttonsDrawn = false;
 window.setTimeout(function() {
     checkUnlockables();
     drawButtons();
+    checkScoresCookie();
 }, 100)
 
 function drawButtons() {

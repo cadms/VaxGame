@@ -1112,6 +1112,9 @@ function recordScores() {
     $.cookie('vaxCurrentScenarioScores', JSON.stringify(currentScenarioScoresCookie), { expires: 365, path: '/' })
     console.log($.cookie('vaxCurrentScenarioScores'))
 
+    // Save score to vaxScores historical cookie
+    saveToScoresHistory(savedIndividuals);
+
     modifyUnlocks();
     window.location.href = 'scenario.html';
 }
@@ -1156,6 +1159,38 @@ function modifyUnlocks() {
     var stringifiedUnlocks = JSON.stringify(unlocks);
     $.cookie('vaxUnlocks', stringifiedUnlocks, { expires: 365, path: '/' })
     console.log($.cookie('vaxUnlocks'))
+}
+
+function saveToScoresHistory(savedIndividuals) {
+    $.cookie.json = true;
+    var vaxScores = $.cookie('vaxScores');
+    if (!vaxScores) return;
+
+    // Map scenario title to cookie key
+    var scenarioKey;
+    if (scenarioTitle == "Workplace / School") scenarioKey = "work";
+    else if (scenarioTitle == "Movie Theater / Lecture Hall") scenarioKey = "theater";
+    else if (scenarioTitle == "Restaurant") scenarioKey = "restaurant";
+    else if (scenarioTitle == "Organization") scenarioKey = "club";
+    else if (scenarioTitle == "Endless Queue") scenarioKey = "shop";
+    else if (scenarioTitle == "Random Networks") scenarioKey = "original";
+    else return;
+
+    // Determine game mode (speed=true means realTime)
+    var modeKey = speed ? "realTime" : "turnBased";
+
+    // Ensure the nested structure exists
+    if (!vaxScores[scenarioKey]) return;
+    if (!vaxScores[scenarioKey][modeKey]) return;
+    if (!vaxScores[scenarioKey][modeKey][difficulty]) {
+        vaxScores[scenarioKey][modeKey][difficulty] = [];
+    }
+
+    // Add the score
+    vaxScores[scenarioKey][modeKey][difficulty].push(savedIndividuals);
+
+    // Save back to cookie
+    $.cookie('vaxScores', JSON.stringify(vaxScores), { expires: 365, path: '/' });
 }
 
 function getCartesianDistance(originalLocation, newLocation) {

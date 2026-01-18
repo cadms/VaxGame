@@ -66,8 +66,8 @@
 #workSVG, #theaterSVG, #restaurantSVG, #clubSVG, #shopSVG, #originalSVG {
   pointer-events: all;
   position: absolute;
-  width: 175px;
-  height: 200px;
+  width: 250px;
+  height: 240px;
 }
 
 #workEasy, #workMedium, #workHard, #theaterEasy, #theaterMedium, #theaterHard, #restaurantEasy, #restaurantMedium, #restaurantHard, #clubEasy, #clubMedium, #clubHard, #shopEasy, #shopMedium, #shopHard, #originalEasy, #originalMedium, #originalHard {
@@ -76,6 +76,13 @@
   font-weight: 500;
   font-size: 20px;
   cursor: pointer;
+}
+
+.bestScoreText {
+  fill: #85bc99;
+  font-family: "Nunito";
+  font-weight: 300;
+  font-size: 18px;
 }
 
 .scenarioThumbnail {

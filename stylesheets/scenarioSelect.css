@@ -36,6 +36,7 @@
   -moz-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s;
+  z-index: 100;
 
 }
 

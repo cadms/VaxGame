@@ -613,11 +613,11 @@ function loadSyringeIcon() {
 
 
 function tick() {
-    clickArea.attr("cx", function(d) { return d.x = Math.max(8, Math.min(width - 8, d.x)); })
-        .attr("cy", function(d) { return d.y = Math.max(8, Math.min((height *.85), d.y)); });
+    clickArea.attr("cx", function(d) { var r = nodeSizing(d) + 5; return d.x = Math.max(r, Math.min(width - r, d.x)); })
+        .attr("cy", function(d) { var r = nodeSizing(d) + 5; return d.y = Math.max(r, Math.min((height *.85), d.y)); });
 
-    node.attr("cx", function(d) { return d.x = Math.max(8, Math.min(width - 8, d.x)); })
-        .attr("cy", function(d) { return d.y = Math.max(8, Math.min((height *.85), d.y)); });
+    node.attr("cx", function(d) { var r = nodeSizing(d) + 5; return d.x = Math.max(r, Math.min(width - r, d.x)); })
+        .attr("cy", function(d) { var r = nodeSizing(d) + 5; return d.y = Math.max(r, Math.min((height *.85), d.y)); });
 
     link.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
@@ -627,8 +627,11 @@ function tick() {
 }
 
 function nodeSizing(node) {
-    var size = 8;
-    if (toggleDegree) size = (findNeighbors(node).length + 1.5) * resizingParameter;
+    var size;
+    if (toggleDegree) {
+        size = (findNeighbors(node).length + 1.5) * resizingParameter;
+    }
+    else size = 8;
     return size;
 }
 

@@ -203,7 +203,7 @@ d3.select(".homeSVG").append("text")
 
 d3.select(".homeSVG").append("text")
     .attr("class", "homeHI")
-    .attr("x", 692)
+    .attr("x", 694)
     .attr("y", 590)
     .attr("fill", "#707070")
     .attr("font-size", "23px")
@@ -224,8 +224,29 @@ d3.select(".homeSVG").append("text")
 
 d3.select(".homeSVG").append("text")
     .attr("class", "homeHI")
-    .attr("x", 802)
+    .attr("x", 748)
     .attr("y", 622)
+    .attr("fill", "#707070")
+    .attr("font-size", "23px")
+    .style("font-family", "Nunito")
+    .style("cursor", "pointer")
+    .text("Scenarios >")
+    .on("mouseover", function(d) {
+
+        d3.select(this).style("fill", "#2692F2")
+
+    })
+    .on("mouseout", function(d) {
+        d3.select(this).style("fill", "#707070")
+    })
+    .on("click", function() {
+        window.location.href = '/scenario.html'
+    })
+
+d3.select(".homeSVG").append("text")
+    .attr("class", "homeHI")
+    .attr("x", 800)
+    .attr("y", 654)
     .attr("fill", "#707070")
     .attr("font-size", "23px")
     .style("font-family", "Nunito")
@@ -245,6 +266,6 @@ d3.select(".homeSVG").append("text")
 
 d3.select(".homeSVG").append("text")
     .attr("x", 718)
-    .attr("y", 654)
+    .attr("y", 686)
     .attr("fill", "#707070")
     .text("Salathé Group | 2014")

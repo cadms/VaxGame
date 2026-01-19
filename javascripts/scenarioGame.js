@@ -1101,7 +1101,9 @@ function recordScores() {
     saveToScoresHistory(savedIndividuals);
 
     modifyUnlocks();
-    window.location.href = 'scenario.html';
+
+    // Show score recap instead of redirecting
+    initScenarioRecap(savedIndividuals, vaccinatedIndividuals, quarantinedIndividuals);
 }
 
 function modifyUnlocks() {
@@ -1176,6 +1178,234 @@ function saveToScoresHistory(savedIndividuals) {
 
     // Save back to cookie
     $.cookie('vaxScores', JSON.stringify(vaxScores), { expires: 365, path: '/' });
+}
+
+function initScenarioRecap(savedIndividuals, vaccinatedIndividuals, quarantinedIndividuals) {
+    var infectedIndividuals = numberOfIndividuals - savedIndividuals - vaccinatedIndividuals - quarantinedIndividuals;
+
+    // Hide the end game box and game elements
+    d3.select(".endGameShadow").transition().duration(500).attr("y", -200);
+    d3.select(".endGameBox").transition().duration(500).attr("y", -200);
+    d3.select(".endGameText").transition().duration(500).attr("y", -200);
+    d3.select(".endGameSUBMIT").transition().duration(500).attr("y", -200);
+    d3.select(".scenarioSVG").select("g").style("visibility", "hidden");
+
+    // Add scenario title
+    d3.select(".scenarioSVG").append("text")
+        .attr("class", "recapTitle")
+        .attr("x", 200)
+        .attr("y", 50)
+        .style("font-family", "Nunito")
+        .style("font-size", "40px")
+        .style("font-weight", "400")
+        .style("fill", "#707070")
+        .text(scenarioTitle);
+
+    // Add network size
+    d3.select(".scenarioSVG").append("text")
+        .attr("class", "recapNetworkSize")
+        .attr("x", 225)
+        .attr("y", 85)
+        .style("font-family", "Nunito")
+        .style("font-size", "20px")
+        .style("fill", "#BABABA")
+        .text("Network Size: " + numberOfIndividuals);
+
+    // Add difficulty
+    d3.select(".scenarioSVG").append("text")
+        .attr("class", "recapDifficulty")
+        .attr("x", 225)
+        .attr("y", 110)
+        .style("font-family", "Nunito")
+        .style("font-size", "20px")
+        .style("fill", "#BABABA")
+        .text("Difficulty: " + difficulty.charAt(0).toUpperCase() + difficulty.slice(1));
+
+    // Generate stacked bar chart
+    generateScenarioStackedBarChart(savedIndividuals, vaccinatedIndividuals, quarantinedIndividuals, infectedIndividuals);
+
+    // Add navigation buttons
+    addScenarioRecapButtons();
+}
+
+function generateScenarioStackedBarChart(saved, vaccinated, quarantined, infected) {
+    var chartWidth = 125;
+    var chartHeight = 320;
+
+    var stackedSVG = d3.select(".scenarioSVG").append("svg")
+        .attr("class", "stacked")
+        .attr("width", chartWidth)
+        .attr("height", chartHeight)
+        .attr("x", 220)
+        .attr("y", 150)
+        .append("svg:g")
+        .attr("transform", "translate(10,320)");
+
+    var x = d3.scale.ordinal().rangeRoundBands([0, chartWidth - 50]);
+    var y = d3.scale.linear().range([0, chartHeight]);
+    var z = d3.scale.ordinal().range(["#b7b7b7", "#85BC99", "#d9d678", "#ef5555"]);
+
+    var matrix = [
+        [1, saved, vaccinated, quarantined, infected]
+    ];
+
+    var remapped = ["uninfected", "vaccinated", "quarantined", "infected"].map(function(dat, i) {
+        return matrix.map(function(d, ii) {
+            return {x: ii, y: d[i + 1]};
+        });
+    });
+
+    var stacked = d3.layout.stack()(remapped);
+
+    x.domain(stacked[0].map(function(d) { return d.x; }));
+    y.domain([0, d3.max(stacked[stacked.length - 1], function(d) { return d.y0 + d.y; })]);
+
+    // Add a group for each column
+    var valgroup = stackedSVG.selectAll("g.valgroup")
+        .data(stacked)
+        .enter().append("svg:g")
+        .attr("class", "valgroup")
+        .style("fill", function(d, i) { return z(i); });
+
+    // Add a rect for each segment
+    valgroup.selectAll("rect")
+        .data(function(d) { return d; })
+        .enter().append("svg:rect")
+        .attr("x", function(d) { return x(d.x); })
+        .attr("y", function(d) { return -y(d.y0) - y(d.y); })
+        .attr("height", function(d) { return y(d.y); })
+        .attr("width", x.rangeBand());
+
+    // Y-axis line
+    d3.select(".scenarioSVG").append("line")
+        .style("stroke", "#707070")
+        .style("stroke-width", "1px")
+        .attr("x1", 165)
+        .attr("x2", 165)
+        .attr("y1", 140)
+        .attr("y2", 470);
+
+    // X-axis line
+    d3.select(".scenarioSVG").append("line")
+        .style("stroke", "#707070")
+        .style("stroke-width", "1px")
+        .attr("x1", 165)
+        .attr("x2", 400)
+        .attr("y1", 470)
+        .attr("y2", 470);
+
+    // Y-axis labels
+    d3.select(".scenarioSVG").append("text")
+        .attr("x", 117)
+        .attr("y", 162)
+        .style("font-family", "Nunito")
+        .style("font-size", "15px")
+        .style("font-weight", "500")
+        .style("fill", "#707070")
+        .text("100%");
+
+    d3.select(".scenarioSVG").append("text")
+        .attr("x", 124)
+        .attr("y", 310)
+        .style("font-family", "Nunito")
+        .style("font-size", "15px")
+        .style("font-weight", "500")
+        .style("fill", "#707070")
+        .text("50%");
+
+    d3.select(".scenarioSVG").append("text")
+        .attr("x", 128)
+        .attr("y", 455)
+        .style("font-family", "Nunito")
+        .style("font-size", "15px")
+        .style("font-weight", "500")
+        .style("fill", "#707070")
+        .text("0%");
+
+    // Legend - colored squares
+    d3.select(".scenarioSVG").append("rect")
+        .attr("height", 15)
+        .attr("width", 15)
+        .attr("x", 350)
+        .attr("y", 200)
+        .attr("fill", "#ef5555");
+
+    d3.select(".scenarioSVG").append("rect")
+        .attr("height", 15)
+        .attr("width", 15)
+        .attr("x", 350)
+        .attr("y", 230)
+        .attr("fill", "#d9d678");
+
+    d3.select(".scenarioSVG").append("rect")
+        .attr("height", 15)
+        .attr("width", 15)
+        .attr("x", 350)
+        .attr("y", 260)
+        .attr("fill", "#85BC99");
+
+    d3.select(".scenarioSVG").append("rect")
+        .attr("height", 15)
+        .attr("width", 15)
+        .attr("x", 350)
+        .attr("y", 290)
+        .attr("fill", "#b7b7b7");
+
+    // Legend - labels
+    d3.select(".scenarioSVG").append("text")
+        .style("font-family", "Nunito")
+        .style("font-size", "15px")
+        .style("fill", "#707070")
+        .attr("x", 380)
+        .attr("y", 213)
+        .text("Infected (" + infected + ")");
+
+    d3.select(".scenarioSVG").append("text")
+        .style("font-family", "Nunito")
+        .style("font-size", "15px")
+        .style("fill", "#707070")
+        .attr("x", 380)
+        .attr("y", 243)
+        .text("Quarantined (" + quarantined + ")");
+
+    d3.select(".scenarioSVG").append("text")
+        .style("font-family", "Nunito")
+        .style("font-size", "15px")
+        .style("fill", "#707070")
+        .attr("x", 380)
+        .attr("y", 273)
+        .text("Vaccinated (" + vaccinated + ")");
+
+    d3.select(".scenarioSVG").append("text")
+        .style("font-family", "Nunito")
+        .style("font-size", "15px")
+        .style("fill", "#707070")
+        .attr("x", 380)
+        .attr("y", 303)
+        .text("Saved (" + saved + ")");
+}
+
+function addScenarioRecapButtons() {
+    // New Scenario button
+    d3.select(".scenarioSVG").append("text")
+        .attr("class", "recapButton")
+        .attr("x", 550)
+        .attr("y", 250)
+        .style("font-family", "Nunito")
+        .style("font-size", "40px")
+        .style("font-weight", "400")
+        .style("fill", "#707070")
+        .style("cursor", "pointer")
+        .text("New Scenario")
+        .on("mouseover", function() {
+            d3.select(this).style("fill", "#2692F2");
+        })
+        .on("mouseout", function() {
+            d3.select(this).style("fill", "#707070");
+        })
+        .on("click", function() {
+            window.location.href = 'scenario.html';
+        });
 }
 
 function getCartesianDistance(originalLocation, newLocation) {

@@ -1,9 +1,11 @@
-== Welcome to Vax!
+### Playable demo [here](https://vaxgame.onrender.com/)
 
-Vax is a is a game about epidemic prevention. It's also an interactive learning
+# Welcome to Vax!
+
+Vax is a game about epidemic prevention. It's also an interactive learning
 environment designed to visualize a process that strains our imagination:
 
-<i>A contagion spreading across a network</i>
+*A contagion spreading across a network*
 
 Players are tasked to prepare for an outbreak by vaccinating a network that
 resembles human social networks. After distributing vaccines, an infectious
@@ -17,7 +19,7 @@ It was developed by Ellsworth Campbell, a PhD student in the Salathé Group
 at Penn State University. Graphic design by Isaac Bromley. Released under a
 Creative Commons Attribution-ShareAlike license.
 
-== Why did you make Vax?
+## Why did you make Vax?
 
 I wanted Vax to be all of the following, and more...
 
@@ -27,9 +29,13 @@ I wanted Vax to be all of the following, and more...
 4. A widely accessible interactive framework to visualize, simulate, and *experience* an infectious processes spreading across/through a contact network.
 5. A platform for a fledgling scientist, such as myself, to gain the experience and skills to do scientific outreach in the digital realm.
 
+## How was Vax built?
 
-== How was Vax built?
+Before Vax, the extent of my web development experience is encompassed by this amazing [Ruby on Rails tutorial](http://ruby.railstutorial.org). Therefore this web application is minimalist by-design. I've employed a few libraries, such as [d3.js](http://d3js.org), [jquery](http://jquery.com), and [jqueryui](http://jqueryui.com). I've also employed a few gems to handle cookies, errors, and styling.
 
-Before Vax, the extent of my web development experience is encompassed by this amazing Ruby on Rails tutorial[http://ruby.railstutorial.org]. Therefore this web application is minimalist by-design. I've employed a few libraries, such as d3.js[http://d3js.org], jquery[http://jquery.com], and jqueryui[http://jqueryui.com]. I've also employed a few gems to handle cookies, errors, and styling.
-
-
+#### Updates from [original](https://github.com/digitalepidemiologylab/VaxGame) game
+* Ripped out all Ruby on Rails code and made it a standalone html/js app.
+* Fixed layout issues for modern browsers.
+* Added links to FAQ and Scenarios
+* Removed progression aspects of scenarios and unlocked all playable options
+* Oringally updated to latest Ruby and Rails before deciding not to use it. Code for that can be found [here](https://github.com/cadms/VaxGame/tree/rails-legacy).

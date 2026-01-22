@@ -328,7 +328,7 @@ function showClearProgressConfirmation() {
         .style("font-size", "14px")
         .style("color", "#707070")
         .style("margin-bottom", "25px")
-        .text("This will erase all game data and cannot be undone.")
+        .text("This will erase all game progress.")
 
     // Yes button
     dialog.append("span")
